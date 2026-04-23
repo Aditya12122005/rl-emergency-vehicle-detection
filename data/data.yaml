@@ -1,0 +1,14 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 5
+names:
+  ["AmbulanceOff", "AmbulanceOn", "FireEngineOff", "FireEngineOn", "PoliceCar"]
+
+roboflow:
+  workspace: adityas-workspace-miejv
+  project: adityas-workspace-miejv
+  version: dataset
+  license: Private
+  url: https://app.roboflow.com/adityas-workspace-miejv/adityas-workspace-miejv/dataset

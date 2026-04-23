@@ -1,0 +1,94 @@
+# # Training Configuration
+# model:
+#   name: yolov8n.pt  # Options: yolov8n.pt, yolov8s.pt, yolov8m.pt, yolov8l.pt, yolov8x.pt
+#   pretrained: true
+
+# training:
+#   epochs: 50
+#   batch_size: 8
+#   image_size: 640
+#   patience: 10  # Early stopping patience
+#   workers: 4
+#   device: cpu  # GPU device, use 'cpu' for CPU training
+
+# optimizer:
+#   lr0: 0.01  # Initial learning rate
+#   lrf: 0.01  # Final learning rate factor
+#   momentum: 0.937
+#   weight_decay: 0.0005
+
+# augmentation:
+#   hsv_h: 0.015
+#   hsv_s: 0.7
+#   hsv_v: 0.4
+#   degrees: 0.0
+#   translate: 0.1
+#   scale: 0.5
+#   flipud: 0.0
+#   fliplr: 0.5
+#   mosaic: 1.0
+#   mixup: 0.0
+
+# paths:
+#   data: data/data.yaml
+#   project: runs
+#   name: emergency_vehicle_detection
+
+# ===============================
+# PROJECT CONFIGURATION
+# ===============================
+
+project:
+  name: "Emergency Vehicle Detection"
+  version: "1.0"
+  author: "Aditya Parmar"
+
+# ===============================
+# VISION (YOLO) CONFIG
+# ===============================
+
+vision:
+  model: "yolov8n.pt"
+  data: "corrected_dataset/data.yaml"
+  epochs: 5
+  imgsz: 320
+  batch: 2
+  device: "cpu"
+
+# ===============================
+# AUDIO CONFIG
+# ===============================
+
+audio:
+  data_path: "audio_data"
+  sample_rate: 22050
+  n_mfcc: 13
+  epochs: 5
+  batch: 2
+  classes:
+    - siren
+    - normal
+
+# ===============================
+# TRAINING SETTINGS
+# ===============================
+
+training:
+  save_dir: "runs/"
+  log: true
+
+# ===============================
+# INFERENCE SETTINGS
+# ===============================
+
+inference:
+  confidence_threshold: 0.5
+  iou_threshold: 0.7
+
+# ===============================
+# SYSTEM SETTINGS
+# ===============================
+
+system:
+  python_version: "3.11"
+  framework: "Ultralytics YOLOv8"
